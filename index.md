@@ -58,7 +58,7 @@
   </div>
 
   <div class="btn-container">
-    <a href="songrecinput.md" class="btn">Input a Song</a>
+    <a href="songrecinput.html" class="btn">Input a Song</a>
     <a href="#" class="btn">Input an Artist</a>
     <a href="#" class="btn">Top Tracks</a>
   </div>
