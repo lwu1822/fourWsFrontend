@@ -58,8 +58,8 @@
 
   <div class="btn-container">
     <a href="songrecinput.html" class="btn">Input a Song</a>
-    <a href="#" class="btn">Input an Artist</a>
-    <a href="#" class="btn">Top Tracks</a>
+    <a href="artist.html" class="btn">Input an Artist</a>
+    <a href="toptracks.html" class="btn">Top Tracks</a>
   </div>
 </body>
 </html>
