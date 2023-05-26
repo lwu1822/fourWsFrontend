@@ -5,6 +5,7 @@
 <head>
     <title>Song Recommendor</title>
 </head>
+<link rel="stylesheet" href="./index.min.css" />
 <body>
 <h1>Song Recommendor</h1>
 

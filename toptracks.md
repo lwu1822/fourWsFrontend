@@ -10,6 +10,7 @@
   <ul id="playlistTracks"></ul>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="./index.min.css" />
   <script>
     // Set up Spotify credentials and endpoints
     const client_id = '5b33a3c946234840adf56c4e858a7032';
