@@ -1,3 +1,7 @@
+---
+layout: custom
+---
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
 </style>

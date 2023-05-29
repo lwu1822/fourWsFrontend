@@ -1,3 +1,7 @@
+---
+layout: custom
+---
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
 </style>
@@ -52,7 +56,12 @@
       const playlistTracks = await getPlaylistTracks(playlistId, accessToken);
 
       const playlistTracksElement = document.getElementById('playlistTracks');
-      playlistTracks.forEach(track => {
+
+      // Limit the number of tracks displayed
+      const maxTracks = 15;
+      const limitedTracks = playlistTracks.slice(0, maxTracks);
+
+      limitedTracks.forEach(track => {
         const trackName = track.track.name;
         const li = document.createElement('li');
         li.textContent = trackName;

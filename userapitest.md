@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+---
+layout: custom
+---
+
 <html>
 <head>
   <title>User Creation</title>
