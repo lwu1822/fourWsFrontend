@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music Recommendation</title>
+</head>
+<body>
+  <h1>Music Recommendation</h1>
+
+  <form id="userInputForm">
+    <label for="userInput">Enter your music preference:</label>
+    <input type="text" id="userInput" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="outputContainer"></div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const userInputForm = document.getElementById('userInputForm');
+    const userInputInput = document.getElementById('userInput');
+    const outputContainer = document.getElementById('outputContainer');
+
+    userInputForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const userInput = userInputInput.value;
+      userInputInput.value = '';
+
+      try {
+        const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+          messages: [
+            { role: 'system', content: 'You are a user requesting music recommendations.' },
+            { role: 'user', content: userInput }
+          ]
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': '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'
+          }
+        });
+
+        const assistantReply = response.data.choices[0].message.content;
+        displayAssistantReply(assistantReply);
+      } catch (error) {
+        console.error('Error calling ChatGPT API:', error);
+        displayAssistantReply('Sorry, an error occurred while processing your request.');
+      }
+    });
+
+    function displayAssistantReply(reply) {
+      const replyElement = document.createElement('p');
+      replyElement.textContent = 'Assistant: ' + reply;
+      outputContainer.appendChild(replyElement);
+    }
+  </script>
+</body>
+</html>

@@ -41,7 +41,7 @@
   };
 
   // Send POST request to the API
-  fetch("/api/users/", {
+  fetch("http://localhost:8086/api/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
