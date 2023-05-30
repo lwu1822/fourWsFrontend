@@ -13,6 +13,7 @@ layout: custom
 <body>
 <h1>Song Recommendor</h1>
 
+<<<<<<< HEAD
  <div class="as">
     <div class="tooltip">
       <a href="songrecinput.html" class="a1">Song</a>
@@ -32,8 +33,29 @@ layout: custom
     </div>
     <div class="tooltip">
       <a href="login.html" class="a5">Login</a>
+=======
+ 
+
+<div class="as">
+        <div class="tooltip">
+        <a href="songrecinput.html" class="a1">Song</a>
+        <div class="bottom">Input Songs</div>
+        </div>
+        <div class="tooltip">
+        <a href="artist.html" class="a2">Artist</a>
+        <div class="bottom">Input Artists</div>
+        </div>
+        <div class="tooltip">
+        <a href="toptracks.html" class="a4">Top Tracks</a>
+        <div class="bottom">Get a list of Top Tracks daily</div>
+        </div>
+        <div class="tooltip">
+        <a href="{{ site.baseurl }}/settings.html" class="a5">Settings</a>
+        <div class="bottom">Get a list of recommendations based on your data</div>
+        </div>
+        <span id="loginStatus"></span>
+>>>>>>> f0500a92cc2c84f72b83f0e762f120b59cf25862
     </div>
-  </div>
 
 <p>Enter three songs you like:</p>
     <p>Song 1:</p>
@@ -50,6 +72,8 @@ layout: custom
     <p>Recommended Songs:</p>
     <p id="rec"></p>
 <!-- Include the JavaScript file -->
+
+<script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
 <script>
   function songrec() {
     let expression = document.getElementById("song1").value;

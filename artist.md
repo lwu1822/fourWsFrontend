@@ -50,6 +50,8 @@ layout: custom
     <p>Recommended Songs:</p>
     <p id="rec"></p>
 <!-- Include the JavaScript file -->
+
+<script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
 <script>
 
 

@@ -40,7 +40,11 @@ layout: custom
       <div class="bottom">Ask Chat GPT for song recommendations</div>
     </div>
     <div class="tooltip">
-      <a href="login.html" class="a5">Login</a>
+      <a href="{{ site.baseurl }}/settings.html" class="a5">Settings</a>
+      <div class="bottom">Get a list of recommendations based on your data</div>
+    </div>
+    <div class="tooltip">
+      <a href="{{ site.baseurl }}/login.html" class="a6">Login</a>
     </div>
   </div>
 </div>
