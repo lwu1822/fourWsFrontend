@@ -4,19 +4,22 @@ let cookie = document.cookie + ";";
 let correctCookie = cookie.match(/(session=.*;|; session=.*;$|; session=.*; )/);
 
 if (correctCookie === null) {
-    /*
-    // show "Log In" in navbar
+ 
+
     let a = document.createElement("a");
+    a.setAttribute("class", "a6");
     let text = document.createTextNode("Log In");
     a.appendChild(text);
     a.href = window.location.origin + "/login";
 
-    let li = document.createElement("li");
-    li.appendChild(a);
+    let div = document.createElement("div");
+    div.setAttribute("class", "tooltip");
+    div.appendChild(a);
 
-    document.getElementById("loginStatus").appendChild(li);
+    document.getElementById("loginStatus").appendChild(div);
 
 
+    /*
     // show "Create Account" in navbar
     a = document.createElement("a");
     text = document.createTextNode("Create Account");
@@ -33,7 +36,6 @@ if (correctCookie === null) {
     */
 } else {
     // show "Log Out" in navbar
-    console.log("cookie");
 
     let a = document.createElement("a");
     a.setAttribute("class", "a6");
