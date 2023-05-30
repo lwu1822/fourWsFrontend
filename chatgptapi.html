@@ -1,10 +1,32 @@
-<!DOCTYPE html>
 <html>
 <head>
   <title>Music Recommendation</title>
 </head>
+<link rel="stylesheet" href="./index.min.css" />
 <body>
   <h1>Music Recommendation</h1>
+
+  <div class="as">
+    <div class="tooltip">
+      <a href="songrecinput.html" class="a1">Song</a>
+      <div class="bottom">Input Songs</div>
+    </div>
+    <div class="tooltip">
+      <a href="artist.html" class="a2">Artist</a>
+      <div class="bottom">Input Artists</div>
+    </div>
+    <div class="tooltip">
+      <a href="toptracks.html" class="a4">Top Tracks</a>
+      <div class="bottom">Get a list of Top Tracks daily</div>
+    </div>
+    <div class="tooltip">
+      <a href="chatgptapi.html" class="a4">Chat GPT</a>
+      <div class="bottom">Ask Chat GPT for song recommendations</div>
+    </div>
+    <div class="tooltip">
+      <a href="login.html" class="a5">Login</a>
+    </div>
+  </div>
 
   <form id="userInputForm">
     <label for="userInput">Enter your music preference:</label>
@@ -28,23 +50,27 @@
 
       try {
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
-          messages: [
+        messages: [
             { role: 'system', content: 'You are a user requesting music recommendations.' },
             { role: 'user', content: userInput }
-          ]
+        ],
+        model: 'gpt-3.5-turbo' 
         }, {
-          headers: {
+        headers: {
             'Content-Type': 'application/json',
-            'Authorization': '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'
-          }
+            'Authorization': 'Bearer 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'
+        }
         });
+
 
         const assistantReply = response.data.choices[0].message.content;
         displayAssistantReply(assistantReply);
       } catch (error) {
         console.error('Error calling ChatGPT API:', error);
+        console.error('Error response:', error.response);
+        console.error('Error message:', error.message);
         displayAssistantReply('Sorry, an error occurred while processing your request.');
-      }
+        }
     });
 
     function displayAssistantReply(reply) {
