@@ -13,6 +13,28 @@ layout: custom
 <body>
 <h1>Artist Recommendor</h1>
 
+<div class="as">
+    <div class="tooltip">
+      <a href="songrecinput.html" class="a1">Song</a>
+      <div class="bottom">Input Songs</div>
+    </div>
+    <div class="tooltip">
+      <a href="artist.html" class="a2">Artist</a>
+      <div class="bottom">Input Artists</div>
+    </div>
+    <div class="tooltip">
+      <a href="toptracks.html" class="a4">Top Tracks</a>
+      <div class="bottom">Get a list of Top Tracks daily</div>
+    </div>
+    <div class="tooltip">
+      <a href="chatgptapi.html" class="a4">Chat GPT</a>
+      <div class="bottom">Ask Chat GPT for song recommendations</div>
+    </div>
+    <div class="tooltip">
+      <a href="login.html" class="a5">Login</a>
+    </div>
+  </div>
+
 <p>Enter three artists you like:</p>
     <p>Artist 1:</p>
     <input type="text" id="song1">

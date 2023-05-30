@@ -36,6 +36,10 @@ layout: custom
       <div class="bottom">Get a list of Top Tracks daily</div>
     </div>
     <div class="tooltip">
+      <a href="chatgptapi.html" class="a4">Chat GPT</a>
+      <div class="bottom">Ask Chat GPT for song recommendations</div>
+    </div>
+    <div class="tooltip">
       <a href="login.html" class="a5">Login</a>
     </div>
   </div>
