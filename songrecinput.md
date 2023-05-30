@@ -13,49 +13,34 @@ layout: custom
 <body>
 <h1>Song Recommendor</h1>
 
-<<<<<<< HEAD
- <div class="as">
-    <div class="tooltip">
-      <a href="songrecinput.html" class="a1">Song</a>
-      <div class="bottom">Input Songs</div>
-    </div>
-    <div class="tooltip">
-      <a href="artist.html" class="a2">Artist</a>
-      <div class="bottom">Input Artists</div>
-    </div>
-    <div class="tooltip">
-      <a href="toptracks.html" class="a4">Top Tracks</a>
-      <div class="bottom">Get a list of Top Tracks daily</div>
-    </div>
-    <div class="tooltip">
-      <a href="chatgptapi.html" class="a4">Chat GPT</a>
-      <div class="bottom">Ask Chat GPT for song recommendations</div>
-    </div>
-    <div class="tooltip">
-      <a href="login.html" class="a5">Login</a>
-=======
  
 
 <div class="as">
-        <div class="tooltip">
-        <a href="songrecinput.html" class="a1">Song</a>
-        <div class="bottom">Input Songs</div>
-        </div>
-        <div class="tooltip">
-        <a href="artist.html" class="a2">Artist</a>
-        <div class="bottom">Input Artists</div>
-        </div>
-        <div class="tooltip">
-        <a href="toptracks.html" class="a4">Top Tracks</a>
-        <div class="bottom">Get a list of Top Tracks daily</div>
-        </div>
-        <div class="tooltip">
-        <a href="{{ site.baseurl }}/settings.html" class="a5">Settings</a>
-        <div class="bottom">Get a list of recommendations based on your data</div>
-        </div>
-        <span id="loginStatus"></span>
->>>>>>> f0500a92cc2c84f72b83f0e762f120b59cf25862
-    </div>
+  <div class="tooltip">
+    <a href="songrecinput.html" class="a1">Song</a>
+    <div class="bottom">Input Songs</div>
+  </div>
+  <div class="tooltip">
+    <a href="artist.html" class="a2">Artist</a>
+    <div class="bottom">Input Artists</div>
+  </div>
+  <div class="tooltip">
+    <a href="toptracks.html" class="a4">Top Tracks</a>
+    <div class="bottom">Get a list of Top Tracks daily</div>
+  </div>
+  <div class="tooltip">
+    <a href="chatgptapi.html" class="a4">Chat GPT</a>
+    <div class="bottom">Ask Chat GPT for song recommendations</div>
+  </div>
+  <div class="tooltip">
+    <a href="{{ site.baseurl }}/settings.html" class="a5">Settings</a>
+    <div class="bottom">Get a list of recommendations based on your data</div>
+  </div>
+  <div class="tooltip">
+    <a href="{{ site.baseurl }}/login.html" class="a6">Login</a>
+  </div>
+</div>
+</div>
 
 <p>Enter three songs you like:</p>
     <p>Song 1:</p>
