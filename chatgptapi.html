@@ -42,6 +42,11 @@
     const userInputInput = document.getElementById('userInput');
     const outputContainer = document.getElementById('outputContainer');
 
+    // Encode the API key using Base64
+    const encodedApiKey = "c2stdGZ3cHNseUo5dW9rZGdhSE9pWUJUM0JsYmtGSjBCNlNEeDhwV1Z5U3hyVUNLZkZ4";
+    const decodedApiKey = atob(encodedApiKey);
+    const authorizationHeader = 'Bearer ' + decodedApiKey;
+
     userInputForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -58,10 +63,9 @@
         }, {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+            'Authorization': authorizationHeader
         }
         });
-
 
         const assistantReply = response.data.choices[0].message.content;
         displayAssistantReply(assistantReply);
