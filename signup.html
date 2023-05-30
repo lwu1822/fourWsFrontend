@@ -7,13 +7,13 @@ layout: custom
 </style>
 <html>
 <head>
-    <title>Settings</title>
+    <title>Sign Up</title>
 </head>
 <link rel="stylesheet" href="./index.min.css" />
 <body>
-    <h1>Login</h1>
+    <h1>Sign up</h1>
 
-       <div class="as">
+    <div class="as">
         <div class="tooltip">
         <a href="songrecinput.html" class="a1">Song</a>
         <div class="bottom">Input Songs</div>
@@ -33,11 +33,9 @@ layout: custom
         <span id="loginStatus"></span>
     </div>
 
+    <div id="recommend"></div>
 
-    <br>
-    <br>
-
-    <form method="POST" action="javascript:login_user()">
+    <form method="POST" action="javascript:create_user()">
         <center>
             <p><label>
                 Username:
@@ -47,35 +45,50 @@ layout: custom
                 Password:
                 <input type="password" name="password" id="password" required>
             </label></p>
-            <p><button>Login</button></p>
+            <p><label>
+                Birthday:
+                <input type="date" name="dob" id="dob" required>
+            </label></p>
+           
+    <!-- sort albums -->
+    <form style="display: inline;">
+        <label for="countrySelect">Country:</label>
+        <select name="countrySelect" id="countrySelect">
+            <option value="us">US</option>
+        </select>
+    </form>
+            <p><button>Sign up</button></p>
             <p id="message"></p>
         </center>
     </form>
 
+
+
     <div id="error"></div>
-
-    <p>No account? Sign up <a href="{{ site.baseurl }}/signup">here</a></p>
-
-
 
 </body>
 </html>
 
 <!-- Include the JavaScript file -->
-
 <script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
 <script>
-   
-    function login_user() {
+
+    let country = document.getElementById("countrySelect").value;
+
+    function create_user() {
         document.getElementById("error").innerHTML = "";
 
 
-        var baseurl = "http://fourws.duckdns.org/api/users/login";
+        var baseurl = "http://fourws.duckdns.org/api/users/";
        
         const body = {
-            username: document.getElementById("username").value,
-            password: document.getElementById("password").value
+            uid: document.getElementById("username").value,
+            password: document.getElementById("password").value,
+            dob: document.getElementById("dob").value,
+            country: document.getElementById("countrySelect").value
+
         };
+
 
         // Set Headers to support cross origin
         //IMPORTANT!!!!!!! TO SUCCESSFULLY POST, YOU NEED TO REMOVE
@@ -114,16 +127,12 @@ layout: custom
             response.json().then(data => {
                 console.log(data);
 
-                document.cookie = "session=" + data["id"];
+                //document.cookie = "session=" + data["id"];
             })
 
-            window.location.href = "{{ site.baseurl }}/settings";
+            //window.location.href = "{{ site.baseurl }}/settings";
         })
     }  
 
- 
-
-
-
-
+   
 </script>
