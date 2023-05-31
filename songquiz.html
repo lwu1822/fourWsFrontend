@@ -1,0 +1,109 @@
+---
+layout: custom
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+</style>
+<html>
+<head>
+    <title>Song Recommender</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/stuff.css">
+</head>
+<link rel="stylesheet" href="./index.min.css" />
+<body>
+<h1>Song Recommender</h1>
+
+ 
+
+<div class="as">
+  <div class="tooltip">
+    <a href="songrecinput.html" class="a1">Song</a>
+    <div class="bottom">Input Songs</div>
+  </div>
+  <div class="tooltip">
+    <a href="artist.html" class="a2">Artist</a>
+    <div class="bottom">Input Artists</div>
+  </div>
+  <div class="tooltip">
+    <a href="toptracks.html" class="a4">Top Tracks</a>
+    <div class="bottom">Get a list of Top Tracks daily</div>
+  </div>
+  <div class="tooltip">
+    <a href="chatgptapi.html" class="a4">Chat GPT</a>
+    <div class="bottom">Ask Chat GPT for song recommendations</div>
+  </div>
+  <div class="tooltip" id="profile">
+  </div>
+ 
+  <span id="loginStatus"></span>
+
+</div>
+
+
+<br>
+<br>
+
+<p>Do you like this song?</p>
+<br>
+
+<button class="button1">Yes</button>
+<button class="button2">I like the artist but not the song</button>
+<button class="button3">No/not sure</button>
+
+<!-- Include the JavaScript file -->
+
+<script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
+<script>
+
+async function songrec() {
+    document.getElementById("rec").innerHTML = "";
+
+    let song = document.getElementById("song1").value;
+    let song2 = document.getElementById("song2").value;
+    let song3 = document.getElementById("song3").value;
+
+        // send fetch to backend's endpoint for user info
+        var baseurl = "http://fourws.duckdns.org/api/users/songrec";
+        
+        const body = {
+            song: song 
+        };
+
+        // Set Headers to support cross origin
+        //IMPORTANT!!!!!!! TO SUCCESSFULLY POST, YOU NEED TO REMOVE
+        // credentials:'include'
+        const requestOptions = {
+            method: 'POST',
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            //credentials: 'include', // include, *same-origin, omit
+            body: JSON.stringify(body),
+            headers: {
+                "content-type": "application/json"
+            },
+        };
+
+        let response = await fetch(baseurl, requestOptions)
+
+        if (!response["ok"]) {
+            console.log("error");
+        }
+
+        let data = await response.json();
+        console.log(data);
+
+        for (let i = 0; i < Object.keys(data).length; i++) {
+          let p = document.createElement("p");
+          let text = document.createTextNode(data[i]);
+          p.appendChild(text);
+          document.getElementById("rec").appendChild(p);
+        }
+
+    }
+
+</script>
+</body>
+</html>
+
+
