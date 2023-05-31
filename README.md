@@ -1,62 +1,24 @@
-## The Reunion Project
+## 4 Ws
 
-Usage
+## Overview
 
-1. Midnight Theme. Use the GitHub Pages [Midnight Theme](https://github.com/pages-themes/midnight/blob/master/README.md) as a resource.  This project started with customization of _layouts/default.html from the Midnight Theme.  If you wanted to use a different [GitHub Pages Themes](https://pages.github.com/themes/), you would similarly change `_layouts/default.html` from repo used to support that theme.  Observe comment at top of _layouts/default.html ...
+Application that recommends music through machine learning. Input songs you like and it will output some songs that are recommended by machine learning. This project aims to be a subsitute to spotify that has more functionality and features. We take in both songs and geography data to output accurate results. It also includes a recommendation system through chatgpt.
 
-```html
-<!-- 
-  _layouts/default.html
-  customization to original Midnight theme 
-  found through GitHub Pages Themes
- -->
-```
+## Features
 
-2. Preview Site (Option A) - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).  This instruction provides instructions for ruby `Gemfile`,`bundle install`.  As an addition add `.gitignore` to avoid seeing build files in commit.   After pre-requisites run this command to obtain prompt for web server ...
+1. **Song Recommender:** User inputs songs and will receive three similar songs determined by machine learning.
 
-```bash
-bundle exec jekyll serve -H 0.0.0.0 -P 4001 # -H and -P are optional
-```
-3. Install Nix and run using a Nix shell (Option B).  This should be quicker than Docker and more reliable than previous.
+2. **Top Tracks:** Ouput the top five tracks based on the spotify global data
 
-```bash
-sh <(curl -L https://nixos.org/nix/install) # installs nix requires root password
+3. **ChatGPT Recommender:** User inputs anything related to their music taste and chhatgpt will output similar songs back
 
-# restart terminal as shell is updated, then cd ~/vscode/project-dir assuming you have it cloned
+4. **Geography Recommender:** User selects their country and will receive similar songs based on that.
 
-nix-shell # start shell, aka nix os virtual environment
-code . # activate VSCode in current directory
+5. **Data Structures and Operations:** The project will leverage various data structures, such as an online database, to store geography information. CRUD operations (Create, Read, Update, Delete) will be implemented to manage user data. Sorting, data filtering, and query operations will be used to determine songs to recommend.
+## Technical Requirements
 
-# open vscode terminal
+The following technical components are necessary to implement the project effectively:
 
-bundle install # only need to run once, first time. If this command doesn't work, delete your github repo, and reclone it. 
+- **Online Database:** An online database will be utilized to store user code submissions and scores. CRUD operations (Create, Read, Update, Delete) will be implemented to manage user data effectively.
 
-bundle exec jekyll serve # run server
-
-bundle exec jekyll serve --livereload --force_polling # if you are on WSL/windows and the above command doesn't work, try this.
-
-```
-
-4. Preview Site (Option C) - [GitHub Pages Ruby Gem](https://github.com/github/pages-gem) has additional information on making a local server.  Ruby requirements are the same: `Gemfile`,`bundle install`.   This README looks like basis of FastPages `make server` as it uses Docker and shows how to setup a `Makefile`.
-
-5. Customizing style (CSS).  This project uses `/assets/css/style.scss` as the location to customize your CSS. To avoid warnings in VSCode make sure you install `SCSS IntelliSense` plugin.  To understand default style, make sure you ***Preview Site*** and refer to build generated `_site/assets/css/style.css` (this is worth 1000 lectures).  For the reunion site `gallery.md` uses custom style from `assets/css/style.css` to support 3 images per row.  Observe file and position of import and custom CSS, order is important as clarified in Midnight Theme readme. ...
-
-```css
----
----
-
-@import "{{ site.theme }}";
-
-/* "row style" is flexible size and aligns pictures in center */
-.row {
-    align-items: center;
-    display: flex;
-  }
-  
-  /* "column style" is one-third of the width with padding */
-  .column {
-    flex: 33.33%;
-    padding: 5px;
-  }
-```
-
+- **API Keys:** A API key from spotify and openai will be needed for this project
