@@ -33,9 +33,6 @@ layout: custom
         </div>
         <div class="tooltip" id="profile">
         </div>
-        <div class="tooltip">
-        <a href="{{ site.baseurl }}/login.html" class="a6">Login</a>
-        </div>
         <span id="loginStatus"></span>
     </div>
 
