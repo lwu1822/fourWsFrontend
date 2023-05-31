@@ -41,14 +41,43 @@ layout: custom
 
 <!-- Include the JavaScript file -->
 <script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/getUsername.js"></script>
 <script>
-    async function getSongs() {
+
+    async function getCountry(username) {
+
+        var getUrl = "http://fourws.duckdns.org/api/users/" + username;
+
+        var getOptions = {
+            method: 'GET', 
+            mode: 'cors', 
+            cache: 'default', 
+            //credentials: 'include', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+
+        let response = await fetch(getUrl, getOptions)
+        
+        if (!response["ok"]) {
+            console.log("Error");
+            return;
+        }
+
+        let data = await response.json();
+        let country = data["country"];
+        return country; 
+    }
+
+    async function getSongs(country) {
 
         // send fetch to backend's endpoint for user info
         var baseurl = "http://fourws.duckdns.org/api/users/recommender";
         
         const body = {
-            country: 2,
+            country: country,
         };
 
         // Set Headers to support cross origin
@@ -76,8 +105,8 @@ layout: custom
 
     }
 
-    async function showSongs() {
-        let data = await getSongs();
+    async function showSongs(country) {
+        let data = await getSongs(country);
         console.log(data);
 
         for (let i = 0; i < Object.keys(data).length; i++) {
@@ -92,7 +121,9 @@ layout: custom
     }
 
     async function init() {
-        showSongs();
+        let username = await fetchUsernameOnly();
+        let country = await getCountry(username);
+        showSongs(country);
     }
 
     init();
