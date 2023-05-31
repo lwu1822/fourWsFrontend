@@ -40,7 +40,12 @@ layout: custom
     <br>
     <br>
 
+    <div id="welcome"></div>
+       
+    <br>
+    <br>
 
+    <p>Songs you may like: </p>
     <div id="recommend"></div>
 
 
@@ -50,6 +55,7 @@ layout: custom
 <!-- Include the JavaScript file -->
 <script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}/getUsername.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/cookieCheckNotNav.js"></script>
 <script>
     let songId = [];
 
@@ -172,9 +178,30 @@ layout: custom
   
 
     async function init() {
+        await welcome();
         let username = await fetchUsernameOnly();
         let country = await getCountry(username);
         showSongs(country);
+    }
+
+    async function welcome() {
+
+        document.getElementById("welcome").innerHTML = "";
+
+        let p = document.createElement("p");
+        let text = "";
+        if (correctCookie2 === null) {
+            text = document.createTextNode("Welcome, Guest!");
+            p.appendChild(text);
+        } else {
+            let msg = "Welcome, " + await fetchUsernameOnly() + "!";
+            text = document.createTextNode(msg);
+            p.appendChild(text);
+        }
+
+        let center = document.createElement("center");
+        center.appendChild(p);
+        document.getElementById("welcome").appendChild(center);
     }
 
     init();
