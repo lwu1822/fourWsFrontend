@@ -44,6 +44,18 @@ layout: custom
 <br>
 <br>
 
+<form style="display: inline;">
+        <label for="genre">Genre:</label>
+        <select name="genre" id="genre">
+            <option value="pop">Pop</option>
+        </select>
+</form>
+
+<button style="display: inline;" onclick="setGenre()">Go</button>
+
+<br>
+<br>
+
 <p>Do you like this song?</p>
 <div id="possibleSong"></div>
 <br>
@@ -53,7 +65,7 @@ layout: custom
 <button class="button3" onclick="record3()" id="button3">No/not sure</button>
 
 
-    <p id="rec" class="songRec"></p>
+<p id="rec" class="songRec"></p>
 
 <!-- Include the JavaScript file -->
 
@@ -64,7 +76,10 @@ layout: custom
     let currentSong = "";
     let i = 0;
 
-    let likeSongs = []
+    let likeSongs = [];
+
+    let genre = "";
+
 
     function record1() {
         console.log(currentSong);
@@ -79,6 +94,8 @@ layout: custom
 
     function record3() {
         console.log("3");
+        i++;
+        showSongs(i);
     }
 
 
@@ -161,6 +178,10 @@ async function songrec() {
         console.log(data);
 
         songList = [];
+        let p = document.createElement("p");
+        let text = document.createTextNode("Recommended songs:");
+        p.appendChild(text);
+        document.getElementById("rec").appendChild(p);
         for (let i = 0; i < Object.keys(data).length; i++) {
           let p = document.createElement("p");
           let text = document.createTextNode(data[i]);
@@ -179,6 +200,7 @@ async function songrec() {
         console.log("songList: " + songList);
 
         i = 0; 
+        genre = "";
         showSongs(0);
 
     }
@@ -191,6 +213,10 @@ async function songrec() {
     }
 
     async function showSongs(i) {
+        if (genre === "pop") {
+            songList = ["You Belong With Me - Taylor Swift", "Hot N Cold - Katy Perry", "Wake Up Call - Maroon 5", "...Baby One More Time - Britney Spears", "Party In The U.S.A. - Miley Cyrus"]
+        }
+
         if (i === 0) {
             likeSongs = [];
         }
@@ -213,6 +239,14 @@ async function songrec() {
 
 
     init();
+
+
+    async function setGenre() {
+        let genreLocal = document.getElementById("genre").value;
+        genre = genreLocal;
+        console.log(genre);
+
+    }
 </script>
 </body>
 </html>
