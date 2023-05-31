@@ -31,7 +31,7 @@ if (correctCookie === null) {
 
     document.getElementById("createAccount").appendChild(li);
     */
-   
+
     // hide "Settings" in navbar
     document.getElementById("settings").innerHTML = "";
     
@@ -51,18 +51,25 @@ if (correctCookie === null) {
     document.getElementById("loginStatus").appendChild(div);
 
 
-    /*
+    
     // show "Settings" in navbar
     a = document.createElement("a");
+    a.setAttribute("class", "a5");
     text = document.createTextNode("Settings");
     a.appendChild(text);
     a.href = window.location.origin + "/settings";
 
-    li = document.createElement("li");
-    li.appendChild(a);
 
-    document.getElementById("settings").appendChild(li);
+    div = document.createElement("div");
+    div.setAttribute("class", "bottom");
+    text = document.createTextNode("Get a list of recommendations based on your data");
+    div.appendChild(text);
 
+
+    document.getElementById("settings").appendChild(a);
+    document.getElementById("settings").appendChild(div);
+
+    /*
     // hide "Create Account" in navbar
     document.getElementById("createAccount").innerHTML = "";
     */
