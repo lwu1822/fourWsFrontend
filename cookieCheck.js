@@ -32,8 +32,8 @@ if (correctCookie === null) {
     document.getElementById("createAccount").appendChild(li);
     */
 
-    // hide "Settings" in navbar
-    document.getElementById("settings").innerHTML = "";
+    // hide "profile" in navbar
+    document.getElementById("profile").innerHTML = "";
     
 } else {
     // show "Log Out" in navbar
@@ -52,12 +52,12 @@ if (correctCookie === null) {
 
 
     
-    // show "Settings" in navbar
+    // show "Profile" in navbar
     a = document.createElement("a");
     a.setAttribute("class", "a5");
-    text = document.createTextNode("Settings");
+    text = document.createTextNode("Profile");
     a.appendChild(text);
-    a.href = window.location.origin + "/settings";
+    a.href = window.location.origin + "/profile";
 
 
     div = document.createElement("div");
@@ -66,8 +66,8 @@ if (correctCookie === null) {
     div.appendChild(text);
 
 
-    document.getElementById("settings").appendChild(a);
-    document.getElementById("settings").appendChild(div);
+    document.getElementById("profile").appendChild(a);
+    document.getElementById("profile").appendChild(div);
 
     /*
     // hide "Create Account" in navbar

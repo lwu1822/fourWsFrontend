@@ -39,9 +39,7 @@ layout: custom
       <a href="chatgptapi.html" class="a4">Chat GPT</a>
       <div class="bottom">Ask Chat GPT for song recommendations</div>
     </div>
-    <div class="tooltip">
-      <a href="{{ site.baseurl }}/settings.html" class="a5">Settings</a>
-      <div class="bottom">Get a list of recommendations based on your data</div>
+    <div class="tooltip" id="profile">
     </div>
     <div class="tooltip">
       <a href="{{ site.baseurl }}/login.html" class="a6">Login</a>
