@@ -1,7 +1,3 @@
----
-layout: custom
----
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
 </style>
@@ -9,6 +5,26 @@ layout: custom
 <head>
   <title>Top Songs</title>
 </head>
+<style>
+  #playlistTracks img {
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  #playlistTracks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-gap: 10px;
+      list-style: none;
+      padding: 0;
+    }
+
+    #playlistTracks li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+</style>
 <body>
   <h1>Top Songs</h1>
    <div class="as">
@@ -80,20 +96,27 @@ layout: custom
       const playlistTracksElement = document.getElementById('playlistTracks');
 
       // Limit the number of tracks displayed
-      const maxTracks = 15;
+      const maxTracks = 5;
       const limitedTracks = playlistTracks.slice(0, maxTracks);
 
       limitedTracks.forEach(track => {
         const trackName = track.track.name;
-        const li = document.createElement('li');
-        li.textContent = trackName;
-        playlistTracksElement.appendChild(li);
+        const albumCoverUrl = track.track.album.images[0].url;
+        const songLink = track.track.external_urls.spotify;
 
-        // Additional track information retrieval
-        // const artistName = track.track.artists[0].name;
-        // const artistLi = document.createElement('li');
-        // artistLi.textContent = artistName;
-        // playlistTracksElement.appendChild(artistLi);
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        const a = document.createElement('a');
+        
+        img.src = albumCoverUrl;
+        img.alt = `${trackName} - Album Cover`;
+        a.href = songLink;
+        a.target = "_blank";
+        a.textContent = trackName;
+
+        li.appendChild(img);
+        li.appendChild(a);
+        playlistTracksElement.appendChild(li);
       });
     }
 
