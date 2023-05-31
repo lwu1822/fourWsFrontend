@@ -45,6 +45,7 @@ layout: custom
 <br>
 
 <p>Do you like this song?</p>
+<div id="possibleSong"></div>
 <br>
 
 <button class="button1" onclick="record1()" id="button1">Yes</button>
@@ -59,15 +60,17 @@ layout: custom
 <script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
 <script>
 
-    let songList = ["Love Story - Taylor Swift"]
+    let songList = ["You Belong With Me - Taylor Swift", "You'll Be There - George Strait", "Hey Jude - The Beatles", "Jailhouse Rock - Elvis Presley"]
+    let currentSong = "";
+    let i = 0;
 
     let likeSongs = []
 
     function record1() {
-        console.log("1");
-        console.log(songList);
-        likeSongs.push(songList[0])
-        console.log(likeSongs);
+        console.log(currentSong);
+        addSong(i);
+        i++;
+        showSongs(i);
     }
 
     function record2() {
@@ -75,8 +78,17 @@ layout: custom
     }
 
     function record3() {
+        
         console.log("3");
     }
+
+
+    function addSong(i) {
+        console.log("i: " + i);
+        likeSongs.push(songList[i]);
+    }
+
+    let recommendedSongs = []
 
 async function songrec() {
     document.getElementById("rec").innerHTML = "";
@@ -87,30 +99,30 @@ async function songrec() {
     let song4 = "";
     let song5 = "";
 
-    if (songList.length == 1) {
-        song = songList[0];
+    if (likeSongs.length == 1) {
+        song = likeSongs[0];
     }
-    if (songList.length == 2) {
-        song = songList[0];
-        song2 = songList[1];
+    if (likeSongs.length == 2) {
+        song = likeSongs[0];
+        song2 = likeSongs[1];
     }
-    if (songList.length == 3) {
-        song = songList[0];
-        song2 = songList[1];
-        song3 = songList[2];
+    if (likeSongs.length == 3) {
+        song = likeSongs[0];
+        song2 = likeSongs[1];
+        song3 = likeSongs[2];
     }
-    if (songList.length == 4) {
-        song = songList[0];
-        song2 = songList[1];
-        song3 = songList[2];
-        song4 = songList[3];
+    if (likeSongs.length == 4) {
+        song = likeSongs[0];
+        song2 = likeSongs[1];
+        song3 = likeSongs[2];
+        song4 = likeSongs[3];
     }
-    if (songList.length == 5) {
-        song = songList[0];
-        song2 = songList[1];
-        song3 = songList[2];
-        song4 = songList[3];
-        song5 = songList[4];
+    if (likeSongs.length == 5) {
+        song = likeSongs[0];
+        song2 = likeSongs[1];
+        song3 = likeSongs[2];
+        song4 = likeSongs[3];
+        song5 = likeSongs[4];
     }
 
 
@@ -154,11 +166,41 @@ async function songrec() {
           let text = document.createTextNode(data[i]);
           p.appendChild(text);
           document.getElementById("rec").appendChild(p);
+
+          recommendedSongs.push(data[i]);
         }
+
+        console.log(recommendedSongs);
 
     }
 
-    songrec();
+
+    async function init() {
+        await showSongs(0);
+        //await songrec();
+        //console.log(recommendedSongs);
+    }
+
+    async function showSongs(i) {
+        if (i < songList.length) {
+            document.getElementById("possibleSong").innerHTML = "";
+
+            let p = document.createElement("p");
+            let text = document.createTextNode(songList[i]);
+            p.appendChild(text);
+            document.getElementById("possibleSong").appendChild(p);
+
+            currentSong = songList[i];
+        }
+        if (i == songList.length) {
+            console.log(likeSongs);
+            await songrec();
+        }
+    }
+
+
+
+    init();
 </script>
 </body>
 </html>
