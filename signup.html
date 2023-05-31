@@ -58,13 +58,12 @@ layout: custom
         </select>
     </form>
             <p><button>Sign up</button></p>
-            <p id="message"></p>
         </center>
     </form>
 
 
 
-    <div id="error"></div>
+    <div id="message"></div>
 
 </body>
 </html>
@@ -76,7 +75,7 @@ layout: custom
     let country = document.getElementById("countrySelect").value;
 
     function create_user() {
-        document.getElementById("error").innerHTML = "";
+        document.getElementById("message").innerHTML = "";
 
 
         var baseurl = "http://fourws.duckdns.org/api/users/";
@@ -126,6 +125,22 @@ layout: custom
 
             response.json().then(data => {
                 console.log(data);
+
+                let p = document.createElement("p");
+                let text = document.createTextNode("Account successfully created. Click ");
+                p.appendChild(text);
+
+                let a = document.createElement("a");
+                text = document.createTextNode("here");
+                a.appendChild(text);
+                a.href = window.location.origin + "/login";
+                p.appendChild(a);
+
+                text = document.createTextNode(" to login.");
+                p.appendChild(text);
+
+                document.getElementById("message").appendChild(p);
+
 
                 //document.cookie = "session=" + data["id"];
             })
