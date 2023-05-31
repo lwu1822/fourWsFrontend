@@ -78,7 +78,6 @@ layout: custom
     }
 
     function record3() {
-        
         console.log("3");
     }
 
@@ -161,6 +160,7 @@ async function songrec() {
         let data = await response.json();
         console.log(data);
 
+        songList = [];
         for (let i = 0; i < Object.keys(data).length; i++) {
           let p = document.createElement("p");
           let text = document.createTextNode(data[i]);
@@ -168,9 +168,18 @@ async function songrec() {
           document.getElementById("rec").appendChild(p);
 
           recommendedSongs.push(data[i]);
+
+          if (i < 5) {
+            songList.push(data[i]);
+          }
+
         }
 
         console.log(recommendedSongs);
+        console.log("songList: " + songList);
+
+        i = 0; 
+        showSongs(0);
 
     }
 
@@ -182,6 +191,9 @@ async function songrec() {
     }
 
     async function showSongs(i) {
+        if (i === 0) {
+            likeSongs = [];
+        }
         if (i < songList.length) {
             document.getElementById("possibleSong").innerHTML = "";
 
@@ -192,7 +204,7 @@ async function songrec() {
 
             currentSong = songList[i];
         }
-        if (i == songList.length) {
+        if (i === songList.length) {
             console.log(likeSongs);
             await songrec();
         }
