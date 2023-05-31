@@ -52,7 +52,7 @@ layout: custom
 <button class="button3" onclick="record3()" id="button3">No/not sure</button>
 
 
-    <p id="rec"></p>
+    <p id="rec" class="songRec"></p>
 
 <!-- Include the JavaScript file -->
 
@@ -87,14 +87,43 @@ async function songrec() {
     let song4 = "";
     let song5 = "";
 
-    song = songList[0];
+    if (songList.length == 1) {
+        song = songList[0];
+    }
+    if (songList.length == 2) {
+        song = songList[0];
+        song2 = songList[1];
+    }
+    if (songList.length == 3) {
+        song = songList[0];
+        song2 = songList[1];
+        song3 = songList[2];
+    }
+    if (songList.length == 4) {
+        song = songList[0];
+        song2 = songList[1];
+        song3 = songList[2];
+        song4 = songList[3];
+    }
+    if (songList.length == 5) {
+        song = songList[0];
+        song2 = songList[1];
+        song3 = songList[2];
+        song4 = songList[3];
+        song5 = songList[4];
+    }
+
 
 
         // send fetch to backend's endpoint for user info
         var baseurl = "https://fourws.duckdns.org/api/users/songrec";
         
         const body = {
-            song: song 
+            song: song,
+            song2: song2,
+            song3: song3,
+            song4: song4,
+            song5: song5
         };
 
         // Set Headers to support cross origin

@@ -97,3 +97,8 @@
     border: 1;
     width: 30%;
 }
+
+.songRec {
+    position: absolute;
+    top: 100%;
+}
