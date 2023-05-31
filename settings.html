@@ -13,6 +13,7 @@ layout: custom
 <body>
     <h1>Settings</h1>
 
+
     <div class="as">
         <div class="tooltip">
         <a href="songrecinput.html" class="a1">Song</a>
@@ -31,6 +32,10 @@ layout: custom
         <span id="loginStatus"></span>
     </div>
 
+    <br>
+    <br>
+
+
     <div id="recommend"></div>
 
 
@@ -41,6 +46,7 @@ layout: custom
 <script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}/getUsername.js"></script>
 <script>
+    let songId = [];
 
     async function getCountry(username) {
 
@@ -108,14 +114,54 @@ layout: custom
         console.log(data);
 
         for (let i = 0; i < Object.keys(data).length; i++) {
-            let p = document.createElement("p");
-            let text = document.createTextNode(data[i]);
 
-            p.appendChild(text);
+            songId[i] = data[i]["id"];
 
-            document.getElementById("recommend").appendChild(p);
+            let a = document.createElement("a");
+            let text = document.createTextNode(data[i]["name"]);
+
+            a.appendChild(text);
+
+            a.href = await getSongsLink(songId[i]);
+
+            let br = document.createElement("br");
+
+            document.getElementById("recommend").appendChild(a);
+            document.getElementById("recommend").appendChild(br);
+
+
+
         }
 
+    }
+
+
+    async function getSongsLink(songId) {
+
+        var getUrl = "http://fourws.duckdns.org/api/users/songlink";
+
+        var getOptions = {
+            method: 'GET', 
+            mode: 'cors', 
+            cache: 'default', 
+            //credentials: 'include', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+
+        let response = await fetch(getUrl, getOptions)
+        
+        if (!response["ok"]) {
+            console.log("Error");
+            return;
+        }
+
+        let data = await response.json();
+        console.log(data);
+
+        return data[songId];
     }
 
   
