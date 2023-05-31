@@ -30,10 +30,11 @@ if (correctCookie === null) {
     li.appendChild(a);
 
     document.getElementById("createAccount").appendChild(li);
-
+    */
+   
     // hide "Settings" in navbar
     document.getElementById("settings").innerHTML = "";
-    */
+    
 } else {
     // show "Log Out" in navbar
 
