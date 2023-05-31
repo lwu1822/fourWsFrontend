@@ -10,7 +10,7 @@ async function fetchUsername() {
     console.log(correctCookie2);
 
     // send fetch to backend's endpoint for user info
-    var baseurl = "http://fourws.duckdns.org/api/users/info";
+    var baseurl = "https://fourws.duckdns.org/api/users/info";
     
     const body = {
         token: correctCookie2,

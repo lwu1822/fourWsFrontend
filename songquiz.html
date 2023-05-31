@@ -47,24 +47,51 @@ layout: custom
 <p>Do you like this song?</p>
 <br>
 
-<button class="button1">Yes</button>
-<button class="button2">I like the artist but not/not sure about the song</button>
-<button class="button3">No/not sure</button>
+<button class="button1" onclick="record1()" id="button1">Yes</button>
+<button class="button2" onclick="record2()" id="button2">I like the artist but not/not sure about the song</button>
+<button class="button3" onclick="record3()" id="button3">No/not sure</button>
+
+
+    <p id="rec"></p>
 
 <!-- Include the JavaScript file -->
 
 <script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
 <script>
 
+    let songList = ["Love Story - Taylor Swift"]
+
+    let likeSongs = []
+
+    function record1() {
+        console.log("1");
+        console.log(songList);
+        likeSongs.push(songList[0])
+        console.log(likeSongs);
+    }
+
+    function record2() {
+        console.log("2");
+    }
+
+    function record3() {
+        console.log("3");
+    }
+
 async function songrec() {
     document.getElementById("rec").innerHTML = "";
 
-    let song = document.getElementById("song1").value;
-    let song2 = document.getElementById("song2").value;
-    let song3 = document.getElementById("song3").value;
+    let song = "";
+    let song2 = "";
+    let song3 = "";
+    let song4 = "";
+    let song5 = "";
+
+    song = songList[0];
+
 
         // send fetch to backend's endpoint for user info
-        var baseurl = "http://fourws.duckdns.org/api/users/songrec";
+        var baseurl = "https://fourws.duckdns.org/api/users/songrec";
         
         const body = {
             song: song 
@@ -102,6 +129,7 @@ async function songrec() {
 
     }
 
+    songrec();
 </script>
 </body>
 </html>

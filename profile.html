@@ -50,7 +50,7 @@ layout: custom
 
     async function getCountry(username) {
 
-        var getUrl = "http://fourws.duckdns.org/api/users/" + username;
+        var getUrl = "https://fourws.duckdns.org/api/users/" + username;
 
         var getOptions = {
             method: 'GET', 
@@ -78,7 +78,7 @@ layout: custom
     async function getSongs(country) {
 
         // send fetch to backend's endpoint for user info
-        var baseurl = "http://fourws.duckdns.org/api/users/recommender";
+        var baseurl = "https://fourws.duckdns.org/api/users/recommender";
         
         const body = {
             country: country,
@@ -138,7 +138,7 @@ layout: custom
 
     async function getSongsLink(songId) {
 
-        var getUrl = "http://fourws.duckdns.org/api/users/songlink";
+        var getUrl = "https://fourws.duckdns.org/api/users/songlink";
 
         var getOptions = {
             method: 'GET', 
