@@ -120,10 +120,47 @@ layout: custom
 
     }
 
+     async function test() {
+
+        // send fetch to backend's endpoint for user info
+        var baseurl = "http://fourws.duckdns.org/api/users/songrec";
+        
+        const body = {
+            song: "Love Story - Taylor Swift"
+        };
+
+        // Set Headers to support cross origin
+        //IMPORTANT!!!!!!! TO SUCCESSFULLY POST, YOU NEED TO REMOVE
+        // credentials:'include'
+        const requestOptions = {
+            method: 'POST',
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            //credentials: 'include', // include, *same-origin, omit
+            body: JSON.stringify(body),
+            headers: {
+                "content-type": "application/json"
+            },
+        };
+
+        let response = await fetch(baseurl, requestOptions)
+
+        if (!response["ok"]) {
+            console.log("error");
+        }
+
+        let data = await response.json();
+        console.log(data);
+        return data; 
+
+    }
+
     async function init() {
         let username = await fetchUsernameOnly();
         let country = await getCountry(username);
         showSongs(country);
+
+        test();
     }
 
     init();
