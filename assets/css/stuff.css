@@ -12,16 +12,16 @@
     cursor: pointer;
     */
     
-    background: rgb(235, 180, 235);
+    background: rgb(96, 229, 131);
     border-radius: 10px;
     border: 1;
     
-    height: 10%;
-    max-width: 30%;
+    height: 20%;
+    width: 10%;
     top: 70%;
     
     position: absolute;
-    left: 10%;
+    left: 40%;
 }
 .button2 {
     /*
@@ -37,7 +37,7 @@
     cursor: pointer;
     */
     
-    background: rgb(235, 180, 235);
+    background: rgb(96, 229, 131);
     border-radius: 10px;
     border: 1;
     
@@ -46,7 +46,9 @@
     top: 70%;
     
     position: absolute;
-    left: 20%;
+    left: 50%;
+
+    font-size: 75%;
 }
 
 
@@ -64,7 +66,7 @@
     cursor: pointer;
     */
     
-    background: rgb(235, 180, 235);
+    background: rgb(96, 229, 131);
     border-radius: 10px;
     border: 1;
     
@@ -73,7 +75,7 @@
     top: 70%;
     
     position: absolute;
-    left: 30%;
+    left: 60%;
 }
 
 .bigButton {
