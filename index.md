@@ -1,10 +1,11 @@
 ---
 layout: custom
 ---
-<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>fourWs</title>
     <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
