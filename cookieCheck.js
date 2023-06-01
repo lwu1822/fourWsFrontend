@@ -42,7 +42,8 @@ if (correctCookie === null) {
     a.setAttribute("class", "a6");
     let text = document.createTextNode("Log Out");
     a.appendChild(text);
-    a.href = window.location.origin + "/logout";
+    //a.href = window.location.origin + "/logout";
+    a.href = "https://lwu1822.github.io/fourWsFrontend/logout";
 
     let div = document.createElement("div");
     div.setAttribute("class", "tooltip");
@@ -57,7 +58,8 @@ if (correctCookie === null) {
     a.setAttribute("class", "a5");
     text = document.createTextNode("Profile");
     a.appendChild(text);
-    a.href = window.location.origin + "/profile";
+    // a.href = window.location.origin + "/profile";
+    a.href = "https://lwu1822.github.io/fourWsFrontend/profile";
 
 
     div = document.createElement("div");
