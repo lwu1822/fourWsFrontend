@@ -1,7 +1,7 @@
 ---
 layout: custom
 ---
-
+<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
