@@ -10,7 +10,7 @@ if (correctCookie === null) {
     a.setAttribute("class", "a6");
     let text = document.createTextNode("Log In");
     a.appendChild(text);
-    a.href = window.location.origin + "/login";
+    a.href = "https://lwu1822.github.io/fourWsFrontend/login";
 
     let div = document.createElement("div");
     div.setAttribute("class", "tooltip");
