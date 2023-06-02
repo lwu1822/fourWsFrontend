@@ -50,7 +50,10 @@ This command will compile the frontend code and generate optimized static files 
 
 6. Build a local frotend server:
 npm install -g serve
+
 serve -s build
+
+Alternatively, you can build using Jekyll: `bundle exec jekyll serve -H 0.0.0.0 -P 5000`
 
 7. Access the application:
 - http://localhost:5000 or the appropriate port number
