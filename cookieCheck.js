@@ -8,7 +8,7 @@ if (correctCookie === null) {
 
     let a = document.createElement("a");
     a.setAttribute("class", "a6");
-    let text = document.createTextNode("LogIn");
+    let text = document.createTextNode("Log In");
     a.appendChild(text);
     a.href = window.location.origin + "/login";
 
