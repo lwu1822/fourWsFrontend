@@ -8,7 +8,7 @@ if (correctCookie === null) {
 
     let a = document.createElement("a");
     a.setAttribute("class", "a6");
-    let text = document.createTextNode("Log In");
+    let text = document.createTextNode("Login");
     a.appendChild(text);
     a.href = "https://lwu1822.github.io/fourWsFrontend/login";
 
