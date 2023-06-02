@@ -4,18 +4,7 @@ layout: custom
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
-  .button {
-    background-color: #48954a;
-    border: none;
-    color: white;
-    padding: 20px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
+
 </style>
 
 <html>
@@ -50,8 +39,10 @@ layout: custom
   <div id="playlistContainer"></div>
   <button id="getPlaylistsBtn">Get Playlists</button>
 
-  <div id="artistcontainor"></div>
-  <button id="getartistbtn">Get artst</button>
+
+
+  <button type="button" onclick="window.open('{{ site.baseurl }}/spotify copy.html')">Copy your link to open your playlist!</button>
+  
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
     const CLIENT_ID = "62aa1d37681b4e8bb286a27868b2ef2a";
@@ -70,37 +61,7 @@ layout: custom
     const ARTIST_ENDPOINT = "https://api.spotify.com/v1/me/player/currently-playing";
     const token = localStorage.getItem("accessToken");
 
-    function getArtist() {
-      axios
-        .get(ARTIST_ENDPOINT, {
-          headers: {
-            Authorization: "Bearer " + token
-          }
-        })
-        .then(function(response) {
-          renderArtists(response.data.items);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    }
-
-    function renderArtists(artist) {
-      const artistcontainor = document.getElementById("artistcontainor");
-
-      artist.forEach(function(item) {
-        const artistListLink = document.createElement("a");
-        artistListLink.textContent = item.name;
-        artistListLink.href = item.external_urls.spotify;
-        artistListLink.target = "_blank"; // Open in a new tab
-        artistcontainor.appendChild(artistListLink);
-        artistcontainor.appendChild(document.createElement("br")); // Add line break
-      });
-    }
-
-    const getartistbtn = document.getElementById("getartistbtn");
-    getartistbtn.addEventListener("click", getArtist);
-
+   
     function handleGetPlaylists() {
       axios
         .get(PLAYLISTS_ENDPOINT, {
@@ -163,7 +124,7 @@ layout: custom
     processReturnedParamsFromSpotifyAuth();
 
     const loginButton = document.createElement("button");
-    loginButton.textContent = "login to spotify";
+    loginButton.textContent = "Login to spotify!";
     loginButton.addEventListener("click", handleLogin);
 
     const container = document.createElement("div");
