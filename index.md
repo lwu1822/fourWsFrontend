@@ -34,6 +34,9 @@ layout: custom
     <div class="tooltip">
       <a href="toptracks.html" class="a4">Top Tracks</a>
       <div class="bottom">Get a list of Top Tracks daily</div>
+        <div class="spotifyconnection">
+            <a href="spotify.html" class="a2">Connect to Spotify</a>
+            </div>
     </div>
     <div class="tooltip">
       <a href="chatgptapi.html" class="a4">Chat GPT</a>
