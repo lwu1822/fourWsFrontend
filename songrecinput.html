@@ -67,12 +67,38 @@ layout: custom
 <script type="text/javascript" src="{{ site.baseurl }}/cookieCheck.js"></script>
 <script>
 
+// Save song inputs to local storage
+function saveSongsToLocalStorage() {
+  let song1 = document.getElementById("song1").value;
+  let song2 = document.getElementById("song2").value;
+  let song3 = document.getElementById("song3").value;
+  localStorage.setItem('song1', song1);
+  localStorage.setItem('song2', song2);
+  localStorage.setItem('song3', song3);
+}
+
+// Retrieve songs from local storage and populate the input fields
+function loadSongsFromLocalStorage() {
+  let song1 = localStorage.getItem('song1');
+  let song2 = localStorage.getItem('song2');
+  let song3 = localStorage.getItem('song3');
+  document.getElementById("song1").value = song1;
+  document.getElementById("song2").value = song2;
+  document.getElementById("song3").value = song3;
+}
+
+window.onload = function() {
+  loadSongsFromLocalStorage();
+};
+
 async function songrec() {
     document.getElementById("rec").innerHTML = "";
 
     let song = document.getElementById("song1").value;
     let song2 = document.getElementById("song2").value;
     let song3 = document.getElementById("song3").value;
+
+    saveSongsToLocalStorage();
 
         // send fetch to backend's endpoint for user info
         var baseurl = "https://fourws.duckdns.org/api/users/songrec";
