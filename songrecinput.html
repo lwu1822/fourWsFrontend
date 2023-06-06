@@ -68,23 +68,15 @@ layout: custom
 <script>
 
 // Save song inputs to local storage
-function saveSongsToLocalStorage() {
-  let song1 = document.getElementById("song1").value;
-  let song2 = document.getElementById("song2").value;
-  let song3 = document.getElementById("song3").value;
-  localStorage.setItem('song1', song1);
-  localStorage.setItem('song2', song2);
-  localStorage.setItem('song3', song3);
+function saveRecommendationToLocalStorage() {
+  let recommendation = document.getElementById("rec").innerHTML;
+  localStorage.setItem('recommendation', recommendation);
 }
 
 // Retrieve songs from local storage and populate the input fields
 function loadSongsFromLocalStorage() {
-  let song1 = localStorage.getItem('song1');
-  let song2 = localStorage.getItem('song2');
-  let song3 = localStorage.getItem('song3');
-  document.getElementById("song1").value = song1;
-  document.getElementById("song2").value = song2;
-  document.getElementById("song3").value = song3;
+  let recommendation = localStorage.getItem('recommendation');
+  document.getElementById("rec").innerHTML = recommendation;
 }
 
 window.onload = function() {
