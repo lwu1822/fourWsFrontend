@@ -205,6 +205,9 @@ async function songrec() {
         genre = "";
         showSongs(0);
 
+        // Store the recommendation in local storage
+        localStorage.setItem('rec', JSON.stringify(recommendedSongs));
+
     }
 
 
@@ -248,6 +251,25 @@ async function songrec() {
         genre = genreLocal;
         console.log(genre);
 
+    }
+
+    window.onload = function() {
+    // Check if there is a recommendation in local storage
+    let storedRec = localStorage.getItem('rec');
+    if (storedRec) {
+        let recommendedSongs = JSON.parse(storedRec);
+        let p = document.createElement("p");
+        let text = document.createTextNode("Recommended songs:");
+        p.appendChild(text);
+        document.getElementById("rec").appendChild(p);
+        for (let i = 0; i < recommendedSongs.length; i++) {
+            let p = document.createElement("p");
+            let text = document.createTextNode(recommendedSongs[i]);
+            p.appendChild(text);
+            document.getElementById("rec").appendChild(p);
+        }
+    }
+    init();
     }
 </script>
 </body>
