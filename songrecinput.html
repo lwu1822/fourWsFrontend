@@ -74,7 +74,7 @@ function saveRecommendationToLocalStorage() {
 }
 
 // Retrieve songs from local storage and populate the input fields
-function loadSongsFromLocalStorage() {
+function loadRecommendationFromLocalStorage() {
   let recommendation = localStorage.getItem('recommendation');
   document.getElementById("rec").innerHTML = recommendation;
 }
